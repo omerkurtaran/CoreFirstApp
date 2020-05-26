@@ -1,0 +1,40 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="bg-primary text-white m-1 p-1">
+    <h2>Register </h2>
+</div>
+<form asp-action="Register" method="post">
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="form-group">
+        <label asp-for="UserName">User Name</label>
+        <input class="form-control" asp-for="UserName" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Mail">Email</label>
+        <input class="form-control" asp-for="Mail" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input class="form-control" asp-for="Password" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BirthDate">BirthDate</label>
+        <input type="text" asp-format="{0:d}" class="form-control" asp-for="BirthDate" />
+    </div>
+
+    <div class="radio form-group">
+
+        <input asp-for="TermsAccepted" />
+        <label asp-for="TermsAccepted" class="form-check-label">
+            I accept the terms and conditions
+        </label>
+    </div>
+
+    <input type="submit" class="btn btn-primary" />
+</form>

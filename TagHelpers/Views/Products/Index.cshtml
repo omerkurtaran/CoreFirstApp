@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-info" asp-action="Add" asp-controller="Products">Product Add</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <th scope="row">@product.Id</th>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Stock</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@product.Id">Edit</a>
+                    <a class="btn btn-warning" asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

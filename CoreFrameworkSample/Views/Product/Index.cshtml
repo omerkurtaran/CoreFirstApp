@@ -1,0 +1,30 @@
+﻿@model CoreFrameworkSample.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+@*<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">*@
+
+<h2>Product Add</h2>
+<form asp-action="Index" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Product.Name">Name</label>
+        <input class="form-control" asp-for="Product.Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Price">Price</label>
+        <input class="form-control" asp-for="Product.Price">
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Stock">Stock</label>
+        <input class="form-control" asp-for="Product.Stock">
+    </div>
+    <div class="form-group">
+        <label>Category</label>
+        <select asp-for="Product.CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
+            <option>Please select one</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
